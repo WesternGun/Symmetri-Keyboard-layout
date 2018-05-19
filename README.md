@@ -95,7 +95,7 @@ So here I only establish one example and two principles: 1) it is better to be s
 ### 5. Implementation and configuration
 
  With different software/registry tweak, it can be used in Windows/Linux/MacOX. 
-  - Windows: Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339)) and <a href="tree/master/windows/registry_trick">Registry Tricks</a> to swap Function keys. MSKLC 1.4 stays compatible with Windows 10 with 2017 Autumn Creator Update. 
+  - Windows: Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339)) and the [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. MSKLC 1.4 stays compatible with Windows 10 with 2017 Autumn Creator Update. 
   - Linux:  
     - For virtual console (terminal) keyboard **(not finished yet.)**: put `symmetri.map` into `/lib/kbd/keymaps/legacy/i386/`(or `/lib/kbd/keymaps/xkb/`, as you like. All files `/lib/kbd/keymaps/` will be read) and load it with `localectl set-keymap symmetri`.
     - For X11: you must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with `setxkbmap symmetri`.
