@@ -3,7 +3,7 @@
 ![A basic variant of SymmeTri for 104 US-standard keyboard](https://github.com/WesleyBlancoYuan/SymmeTri-Keyboard-Layout/blob/master/preview/preview-ANSI104-bigenter-deadkey-lights.png)
                               (A basic variant of SymmeTri for 104 US-standard keyboard)
 
-_dfdfd_
+<u>dfkdj</u>
 
 This full view is created via [keyboard-layout-editor on Gist](http://www.keyboard-layout-editor.com).
 
