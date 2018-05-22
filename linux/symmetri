@@ -1,4 +1,4 @@
-//WesternGun, 2018
+//Symmetri keyboard layout, by WesternGun, 2018
 default  partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
