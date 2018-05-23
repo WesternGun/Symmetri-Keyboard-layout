@@ -68,3 +68,5 @@ compose 'dead_acute' 'O' to Oacute
 compose 'dead_acute' 'u' to uacute
 compose 'dead_acute' 'U' to Uacute
 compose 'dead_diaeresis' 'u' to ü
+compose 'dead_diaeresis' 'U' to Ü
+
