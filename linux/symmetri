@@ -1,4 +1,3 @@
-//Symmetri keyboard layout, by WesternGun, 2018
 default  partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
@@ -70,3 +69,4 @@ compose 'dead_acute' 'U' to Uacute
 compose 'dead_diaeresis' 'u' to udiaeresis
 compose 'dead_diaeresis' 'U' to Udiaeresis
 
+//Symmetri keyboard layout, by WesternGun, 2018
