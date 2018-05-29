@@ -112,10 +112,6 @@ Important that the executable is not interchangable between different Windows ma
 #### 5.2 Linux
  - For virtual console (terminal) keyboard **(not finished yet.)**: 
  put `symmetri.map` into `/usr/lib/kbd/keymaps/legacy/i386/` or `/usr/lib/kbd/keymaps/xkb/`. (All files `/lib/kbd/keymaps/` will be read) and load it with:
- ```
- localectl set-keymap symmetri
- ```
- or:
  
  ```
  sudo loadkeys symmetri
@@ -127,17 +123,15 @@ Important that the executable is not interchangable between different Windows ma
  ```
  sudo setxkbmap -v symmetri
  ```
- or
- 
- ```
- sudo loadkeys symmetri
- ```
   
  If you want to load the "non-programmer" variant, use:
  
  ```
  sudo setxkbmap -v symmetri -variant non-prog
  ```
+
+(`localectl set-keymap` does not work completely).
+
 
 ---
 #### 5.3 MacOX:  **(not implemented yet.)**
