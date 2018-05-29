@@ -111,4 +111,7 @@ References:
 
 ArchLinux XKB documentation:
 https://wiki.archlinux.org/index.php/X_KeyBoard_extension#Using_keymap_.28deprecated.29
-
+, which mentions:
+http://pascal.tsu.ru/en/xkb/
+and
+https://www.x.org/releases/current/doc/kbproto/xkbproto.pdf
