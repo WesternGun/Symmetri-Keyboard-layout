@@ -107,3 +107,8 @@ So here I only establish one example and two principles: 1) it is better to be s
 
 WesternGun, 14/12/2017
 
+References:
+
+ArchLinux XKB documentation:
+https://wiki.archlinux.org/index.php/X_KeyBoard_extension#Using_keymap_.28deprecated.29
+
