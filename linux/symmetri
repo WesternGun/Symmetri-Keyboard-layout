@@ -1,3 +1,5 @@
+//Symmetri programmer and non-programmer layout. By WesternGun(westernguncyber@gmail.com)
+
 default  partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
@@ -54,19 +56,32 @@ xkb_symbols "basic" {
     key <AB10> {    [     period,       asterisk                                    ]   };
     //home row right most key, the "abandoned child"
     key <BKSL> {    [     bar,          dollar,         ccedilla,       Ccedilla    ]   };
+
+    //enable level 3 right alt switch. taken from "es" definition
+    //a similar list of "options" can be seen in `/usr/share/X11/rules/base.lst`
+    include "level3(ralt_switch)"
 };
 
-compose 'dead_acute' 'a' to aacute
-compose 'dead_acute' 'A' to Aacute
-compose 'dead_acute' 'e' to eacute
-compose 'dead_acute' 'E' to Eacute
-compose 'dead_acute' 'i' to iacute
-compose 'dead_acute' 'I' to Iacute
-compose 'dead_acute' 'o' to oacute
-compose 'dead_acute' 'O' to Oacute
-compose 'dead_acute' 'u' to uacute
-compose 'dead_acute' 'U' to Uacute
-compose 'dead_diaeresis' 'u' to udiaeresis
-compose 'dead_diaeresis' 'U' to Udiaeresis
 
-//Symmetri keyboard layout, by WesternGun, 2018
+default partial alphanumeric_keys modifier_keys
+xkb_symbols "basic" {
+    include "symmetri"
+    name[Group1]= "Symmetri non-programmer(CN, EN and ES)";
+    // row 1 (E)
+    key <TLDE> {    [     question,     exclam,         masculine,      ordfeminine ]   };
+    key <AE01> {    [     1,            braceleft                                   ]   };
+    key <AE02> {    [     2,            bracketleft,    periodcentered              ]   };
+    key <AE03> {    [     3,            parenleft,      EuroSign                    ]   };
+    key <AE04> {    [     4,            less                                        ]   };
+    key <AE05> {    [     5,            slash                                       ]   };
+    key <AE08> {    [     6,            backslash,      notsign                     ]   };
+    key <AE09> {    [     7,            greater                                     ]   };
+    key <AE10> {    [     8,            parenright                                  ]   };
+    key <AE11> {    [     9,            bracketright,   exclamdown                  ]   };
+    key <AE12> {    [     0,            braceright,     questiondown                ]   };
+
+    //enable level 3 right alt switch. taken from "es" definition
+    //a similar list of "options" can be seen in `/usr/share/X11/rules/base.lst`
+    include "level3(ralt_switch)"
+};
+
