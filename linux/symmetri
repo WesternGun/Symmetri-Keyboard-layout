@@ -74,7 +74,9 @@ xkb_symbols "basic" {
 
 partial alphanumeric_keys
 xkb_symbols "non-prog" {
-    include "symmetri"    //include the "default"(first line); the first is default; the rest is variant.
+    //include the "basic" layout
+    include "symmetri"
+    
     name[Group1]= "Symmetri non-programmer(CN, EN and ES)";
     // row 1 (E)
     key <TLDE> {    [     question,     exclam,         masculine,      ordfeminine ]   };
