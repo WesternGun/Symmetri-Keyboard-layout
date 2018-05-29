@@ -57,7 +57,7 @@ xkb_symbols "basic" {
     key <BKSL> {    [     bar,          dollar,         ccedilla,       Ccedilla    ]   };
 };
 
-compose 'dead_acute' 'a' to U+00E1
+compose 'dead_acute' 'a' to aacute
 compose 'dead_acute' 'A' to Aacute
 compose 'dead_acute' 'e' to eacute
 compose 'dead_acute' 'E' to Eacute
@@ -67,6 +67,6 @@ compose 'dead_acute' 'o' to oacute
 compose 'dead_acute' 'O' to Oacute
 compose 'dead_acute' 'u' to uacute
 compose 'dead_acute' 'U' to Uacute
-compose 'dead_diaeresis' 'u' to ü
-compose 'dead_diaeresis' 'U' to Ü
+compose 'dead_diaeresis' 'u' to udiaeresis
+compose 'dead_diaeresis' 'U' to Udiaeresis
 
