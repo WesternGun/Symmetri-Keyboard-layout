@@ -104,7 +104,7 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
  4. [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. Use another file to restore this change.
  5. Restart to load registry modifications.
 
-Important that you must compile in every Windows machine to get the executable, maybe due to differences between the compilation environment of each machine.
+Important that the executable is not interchangable between different Windows machines; in each machine it must be obtained by compiling the `.klc` file independantly. I guess it is due to difference between the compilation environment of each machine.
 
 
 
