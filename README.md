@@ -3,8 +3,6 @@
 ![A basic variant of SymmeTri for 104 US-standard keyboard](https://github.com/WesleyBlancoYuan/SymmeTri-Keyboard-Layout/blob/master/preview/preview-ANSI104-bigenter-deadkey-lights.png)
                               (A basic variant of SymmeTri for 104 US-standard keyboard)
 
-<u>dfkdj</u>
-
 This full view is created via [keyboard-layout-editor on Gist](http://www.keyboard-layout-editor.com).
 
 **SymmeTri**, a symmetrical keyboard layout which supports the three most spoken languages in the world: **Chinese, English and Spanish**. The name "SymmeTri" combines **"Symme"** and **"Tri"**, the first part means "Symmetrical", and the second part "Tri", often meaning "Three" when used as prefix, represents the three languages in question.
@@ -94,15 +92,22 @@ So here I only establish one example and two principles: 1) it is better to be s
 
 
 
-### 5. Implementation and configuration
+### 5. Usage and implementation details
 
- With different software/registry tweak, it can be used in Windows/Linux/MacOX. 
-  - Windows: Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339)) and the [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. MSKLC 1.4 stays compatible with Windows 10 with 2017 Autumn Creator Update. 
-  - Linux:  
-    - For virtual console (terminal) keyboard **(not finished yet.)**: put `symmetri.map` into `/lib/kbd/keymaps/legacy/i386/`(or `/lib/kbd/keymaps/xkb/`, as you like. All files `/lib/kbd/keymaps/` will be read) and load it with `localectl set-keymap symmetri`.
-    - For X11: you must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with `setxkbmap symmetri`.
-  - MacOX:  **(This part is not completed yet.)**
-    [Ukelele](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ukelele) or [Karabiner](https://pqrs.org/osx/karabiner/index.html). For problems of not seeing the newly created keyboard layout of Ukelele, refer to [this link](https://superuser.com/questions/665494/how-to-make-a-custom-keyboard-layout-in-os-x).
+With different software/registry tweak, it can be used in Windows/Linux/MacOX.
+
+---
+#### 5.1 Windows
+Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339)) and the [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. MSKLC 1.4 stays compatible with Windows 10 with 2017 Autumn Creator Update. 
+
+---
+#### 5.2 Linux
+ - For virtual console (terminal) keyboard **(not finished yet.)**: put `symmetri.map` into `/lib/kbd/keymaps/legacy/i386/`(or `/lib/kbd/keymaps/xkb/`, as you like. All files `/lib/kbd/keymaps/` will be read) and load it with `localectl set-keymap symmetri`.
+ - For X11: you must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with `setxkbmap symmetri`.
+---
+#### 5.3 MacOX:  **(This part is not completed yet.)**
+
+[Ukelele](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=ukelele) or [Karabiner](https://pqrs.org/osx/karabiner/index.html). For problems of not seeing the newly created keyboard layout of Ukelele, refer to [this link](https://superuser.com/questions/665494/how-to-make-a-custom-keyboard-layout-in-os-x).
  
 
 WesternGun, 14/12/2017
