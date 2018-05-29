@@ -1,5 +1,10 @@
 //Symmetri programmer and non-programmer layout. By WesternGun(westernguncyber@gmail.com)
 
+
+//default layout, the first one in this file
+
+//load with: setxkbmap -v symmetri
+
 default  partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
@@ -62,10 +67,14 @@ xkb_symbols "basic" {
     include "level3(ralt_switch)"
 };
 
+//A non-programmer variant.
+//definition first line without "default"; "xkb_symbols", aka name of variant: non-prog
 
-default partial alphanumeric_keys modifier_keys
-xkb_symbols "basic" {
-    include "symmetri"
+//load with: setxkbmap -v symmetri -variant non-prog
+
+partial alphanumeric_keys
+xkb_symbols "non-prog" {
+    include "symmetri"    //include the "default"(first line); the first is default; the rest is variant.
     name[Group1]= "Symmetri non-programmer(CN, EN and ES)";
     // row 1 (E)
     key <TLDE> {    [     question,     exclam,         masculine,      ordfeminine ]   };
@@ -79,9 +88,5 @@ xkb_symbols "basic" {
     key <AE10> {    [     8,            parenright                                  ]   };
     key <AE11> {    [     9,            bracketright,   exclamdown                  ]   };
     key <AE12> {    [     0,            braceright,     questiondown                ]   };
-
-    //enable level 3 right alt switch. taken from "es" definition
-    //a similar list of "options" can be seen in `/usr/share/X11/rules/base.lst`
-    include "level3(ralt_switch)"
 };
 
