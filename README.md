@@ -105,7 +105,19 @@ Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.
  - For virtual console (terminal) keyboard **(not finished yet.)**: 
  put `symmetri.map` into `/lib/kbd/keymaps/legacy/i386/`(in Ubuntu) or `/lib/kbd/keymaps/xkb/`(in CentOS). (All files `/lib/kbd/keymaps/` will be read) and load it with `localectl set-keymap symmetri`.
  - For X11:
- you must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with `sudo setxkbmap symmetri` or `sudo loadkeys symmetri`.
+ you must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with
+ ```
+ sudo setxkbmap -v symmetri
+ ```
+ or
+ ```
+ sudo loadkeys symmetri
+ ```.
+ 
+ If you want to load the "non-programmer" variant, use:
+ ```
+ sudo setxkbmap -v symmetri -variant non-prog
+ ```
  
 
 ---
