@@ -5,6 +5,9 @@
 
 This full view is created via [keyboard-layout-editor on Gist](http://www.keyboard-layout-editor.com).
 
+[TOC]
+
+
 **SymmeTri**, a symmetrical keyboard layout which supports the three most spoken languages in the world: **Chinese, English and Spanish**. The name "SymmeTri" combines **"Symme"** and **"Tri"**, the first part means "Symmetrical", and the second part "Tri", often meaning "Three" when used as prefix, represents the three languages in question.
 
 ### 1. Normal use vs. Programming friendly
