@@ -2,7 +2,7 @@
 default  partial alphanumeric_keys modifier_keys
 xkb_symbols "basic" {
 
-    name[Group1]= "Chinese, English and Spanish(CN)";
+    name[Group1]= "Symmetri(CN, EN and ES)";
     // row 1 (E)
     key <TLDE> {    [     question,     exclam,         masculine,      ordfeminine ]   };
     key <AE01> {    [     braceleft,    1                                           ]   };
