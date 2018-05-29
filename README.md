@@ -98,7 +98,19 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
 
 ---
 #### 5.1 Windows
-Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339)) and the [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. MSKLC 1.4 stays compatible with Windows 10 with 2017 Autumn Creator Update. 
+ 1. InstallMicrosoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339), is compatible until Windows 10 with 2017 Autumn Creator Update. )
+ 2. Download the file in `windows` to import into MSKLC, and compile; then install the newly generated executable.
+ 3. Then, in Windows Registry, under
+ 
+    HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts
+
+ search `Chinese`, `Spanish` and `English`, to change `Layout Text` to `Symmetri`, and `Layout file` to `symmetri.dll`. (This file is installed to `C:\Windows\system32\`, or `C:\Windows\SysWOW64\`, depending on whether your machine is x86 or x64 architecture) Backup the folder/keys as you need.
+ 4. [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. Use another file to restore this change.
+ 5. Restart to load registry modifications.
+
+Important that you must compile in every Windows machine to get the executable, maybe due to differences between the compilation environment of each machine.
+
+
 
 ---
 #### 5.2 Linux
