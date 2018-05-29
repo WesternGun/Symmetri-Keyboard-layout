@@ -117,6 +117,9 @@ Important that the executable is not interchangable between different Windows ma
  sudo loadkeys symmetri
  ```
  
+ **Caution**: `loadkeys` changes the layout permanently, even after logout, and **is system-wide**; it means that even if you want to log in with another user after reboot, you will be using the changed layout. It will cause confusion if several users share the same machine, such as the case of a server. Rememeber to change it back when you log out!
+ 
+ 
  - For X11:
  You must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with
  
@@ -124,7 +127,6 @@ Important that the executable is not interchangable between different Windows ma
  sudo setxkbmap -v symmetri
  ```
 
- 
 
  If you want to load the "non-programmer" variant, use:
  
@@ -132,7 +134,7 @@ Important that the executable is not interchangable between different Windows ma
  sudo setxkbmap -v symmetri -variant non-prog
  ```
 
-(`localectl set-keymap` does not work completely).
+<s>(`localectl set-keymap` does not work completely).</s>
 
  **Note**: `setxkbmap` is a temporary change and will return default layout when logout. To make it permanent, add this line into `$HOME/.profile`, as suggested [here](https://unix.stackexchange.com/questions/99085/save-setxkbmap-settings).
 
