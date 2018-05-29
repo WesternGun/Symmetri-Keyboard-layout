@@ -133,7 +133,8 @@ Important that the executable is not interchangable between different Windows ma
  ```
 
 (`localectl set-keymap` does not work completely).
- **Note**: `setxkbmap` is a temporary change and will return default layout when logout. To make it permanent, add this line into `/home/<username>/.profile`, as suggested [here](https://unix.stackexchange.com/questions/99085/save-setxkbmap-settings).
+
+ **Note**: `setxkbmap` is a temporary change and will return default layout when logout. To make it permanent, add this line into `$HOME/.profile`, as suggested [here](https://unix.stackexchange.com/questions/99085/save-setxkbmap-settings).
 
 ---
 #### 5.3 MacOX:  **(not implemented yet.)**
