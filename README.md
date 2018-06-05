@@ -135,7 +135,7 @@ Important that the executable is not interchangable between different Windows ma
  sudo setxkbmap -v symmetri -variant non-prog
  ```
 
-<s>(`localectl set-keymap` does not work completely).</s>
+<s>(`localectl set-keymap` can be used to `list-x11-keymaps` and `list-x11-keymap-variants symmetri`, but it cannot be used to set layout).</s>
 
  **Note**: `setxkbmap` is a temporary change and will return default layout when logout. To make it permanent, add this line into `$HOME/.profile`, as suggested [here](https://unix.stackexchange.com/questions/99085/save-setxkbmap-settings).
 
