@@ -137,7 +137,31 @@ Important that the executable is not interchangable between different Windows ma
 
 <s>(`localectl set-keymap` can be used to `list-x11-keymaps` and `list-x11-keymap-variants symmetri`, but it cannot be used to set layout).</s>
 
- **Note**: `setxkbmap` is a temporary change and will return default layout when logout. To make it permanent, add this line into `$HOME/.profile`, as suggested [here](https://unix.stackexchange.com/questions/99085/save-setxkbmap-settings).
+ **Note**: `setxkbmap` is a temporary change and will return default layout when logout. To make it permanent:
+ 
+  - only after login and for certain user: add this line into `$HOME/.profile`, as suggested [here](https://unix.stackexchange.com/questions/99085/save-setxkbmap-settings)(epic answer and a must-read)
+  - only after login and for all user: add this line to `/etc/profile`, or create `/etc/profile.d/symmetri.sh` and add:
+  ```
+  #!/bin/bash
+  setxkbmap symmetri <-variant non-prog> # "<..>": optional
+  ```
+  - before first successful login: see my question [here](https://unix.stackexchange.com/questions/446756/how-can-i-set-the-keyboard-layout-for-the-login-screen-before-the-first-successf) and my answer.
+  
+  
+To switch the <kbd>CapsLock</kbd> and <kbd>Ctrl</kbd> key, you can use:
+
+```
+setxkbmap symmetri <-variant non-prog> -option ctrl:nocaps
+```
+in all ocasions you change the layout, or, add this line to `/etc/default/keyboard`(Ubuntu) or `/etc/default/useradd`(CentOS 7):
+```
+XKBOPTIONS=ctrl:nocaps
+```
+Source: 
+https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys#answer-521734
+
+If you add it to such file, it applies to all users, so consider first adding the `-option` to `setxkbmap` because in this way you can apply it only to certain user.
+
 
 ---
 #### 5.3 MacOX:  **(not implemented yet.)**
