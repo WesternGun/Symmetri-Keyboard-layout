@@ -148,19 +148,7 @@ Important that the executable is not interchangable between different Windows ma
   - before first successful login: see my question [here](https://unix.stackexchange.com/questions/446756/how-can-i-set-the-keyboard-layout-for-the-login-screen-before-the-first-successf) and my answer.
   
   
-To switch the <kbd>CapsLock</kbd> and <kbd>Ctrl</kbd> key, you can use:
-
-```
-setxkbmap symmetri <-variant non-prog> -option ctrl:nocaps
-```
-in all ocasions you change the layout, or, add this line to `/etc/default/keyboard`(Ubuntu) or `/etc/default/useradd`(CentOS 7):
-```
-XKBOPTIONS=ctrl:nocaps
-```
-Source: 
-https://askubuntu.com/questions/33774/how-do-i-remap-the-caps-lock-and-ctrl-keys#answer-521734
-
-If you add it to such file, it applies to all users, so consider first adding the `-option` to `setxkbmap` because in this way you can apply it only to certain user.
+To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. [This wiki](http://www.noah.org/wiki/CapsLock_Remap_Howto) can serve as a start. (Usually I use virtual machines, so the keys are switched in Windows and works for VMware.)
 
 
 ---
