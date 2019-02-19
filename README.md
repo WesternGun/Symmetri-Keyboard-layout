@@ -145,8 +145,86 @@ Important that the executable is not interchangable between different Windows ma
   #!/bin/bash
   setxkbmap symmetri <-variant non-prog> # "<..>": optional
   ```
-  - before first successful login: see my question [here](https://unix.stackexchange.com/questions/446756/how-can-i-set-the-keyboard-layout-for-the-login-screen-before-the-first-successf) and my answer.
+  - before first successful login: see my question [here](https://unix.stackexchange.com/questions/446756/how-can-i-set-the-keyboard-layout-for-the-login-screen-before-the-first-successf) and my answer. Basically you copy the `evdev.lst` and `evdev.xml` file in this repo to the correct location(remember to make a backup of the original file), and then use `setxkbmap symmetri` to change keymap. Then, add a script file in `/usr/profile.d/` to load the keymap before every reboot.
   
+  To leave a permanent copy:
+
+  >   @terdon your solution is not working, but thanks for helping me out, I have learned more; at first I am also suspecting if it has something to do with Gnome, but it turned out that it is only X11. And @TimBrandrick, your solution should work in most of the cases, but in my case, not before adding my keyboard layout into the `.../X11/xkb/rules/evdev.xml` (and just in case, `.../X11/xkb/rules/evdev.lst`, because according to some sources, the `lst` file is the compiled version of `xml`, but I doubt whether all processes depending on these files will only read `xml` files; so I add in both. Actually, `xml` has more info than `lst`, but `lst` is easier to understand.)
+  > 
+  > 
+  > So, here's how I did it:
+  > 
+  > ### 1. Open `.../X11/xkb/rules/evdev.xml`. 
+  > (I omit the initial part, because it differs between distributions. In CentOS 7, it is under `/usr/share/`; in Ubuntu <= 8.08, it is under `/etc/`.<sup>1</sup> Strange. )
+  > 
+  > ### 2. At the end of children nodes of `<layoutList>`, add this part:
+  > (change as you need, it is just a template)
+  > 
+  > 
+  >     <layout>
+  >       <configItem>
+  >         <name>symmetri</name>
+  >         <shortDescription>symmetri</shortDescription>
+  >         <description>Symmetri (CN, EN and ES)</description>
+  >         <languageList>
+  >           <iso639Id>us</iso639Id>
+  >         </languageList>
+  >       </configItem>
+  >       <variantList>
+  >         <variant>
+  >           <configItem>
+  >             <name>non-prog</name>
+  >             <shortDescription>non-prog</shortDescription>
+  >             <description>Symmetri for non-programmer (CN, EN and ES)</description>
+  >             <languageList>
+  >               <iso639Id>us</iso639Id>
+  >             </languageList>
+  >           </configItem>
+  >         </variant>
+  >       </variantList>
+  >     </layout>
+  > 
+  > If your keyboard layout has no variant, `<variantList>` part can be self-closing, like: `<variantList />`.
+  > 
+  > Note: `iso639Id` should has a value compatible with ISO 639-1 or 639-2 standard.<sup>1</sup> The full table is also given in the reference 1. And, it must be conform with your locale settings. I set `English(U.S)` as my system language, so I fill `us` here.
+  > 
+  > 
+  > ### 3. Save it, and open `.../X11/xkb/rules/evdev.lst`.
+  > 
+  > ### 4. At the end of `! layout`, add your layout's name. Like:
+  > 
+  > 
+  >     symmetri        Symmetri layout (CN, EN and ES)
+  > 
+  > ### 5. If your keyboard layout has variant, at the end of `! variant`, add it, too.
+  > 
+  >     non-prog        symmetri: non-programmer
+  > 
+  > The variant's name should coincide with the info above in the xml file. (As I test, `localectl list-x11-keymap-variants` will *only* read this file instead of reading the xml, should be an error/bug.)
+  > 
+  > 
+  > ### 6. You can do the same to `base.xml` and `base.lst`, but I did it first and it does not work.
+  > 
+  > ### 7. Set your keyboard layout with:
+  > 
+  >     setxkbmap symmetri
+  > 
+  > or, to set the variant, use:
+  > 
+  >     setxkbmap symmetri -variant non-prog 
+  > 
+  > `localectl` can `list-x11-keymap-layouts` and `list-x11-keymap-variants`, but you cannot set variant with it; only `setxkbmap` can.
+  > 
+  > With this setting, now **after reboot and before first login**, you have your new keyboard layout(**although the variant will not persist!! Only the basic layout will!**)
+  > But, once successfully login, the desktop manager will take over, and if you don't configure the new keyboard layout in the `$HOME/.bashrc`/`$HOME/.profile`(for single user)/`/etc/profile.d/xxx.sh`/`/etc/profile`(for all users) file, you will **not** get your new keyboard layout once logout and login back!!!! So these changes will **only** persist before first successful login... you have to use `.bashrc` or profile scripts to tell X server: "not only before login, but also after login I want it for all users!" Cautious: with this change, even if you log out and change user, the layout will be the changed one, not `qwerty(us)`. 
+  > 
+  > Really frustrating.... there must be a easier way, but I cannot find it.
+  > 
+  > 
+  > 
+  > References:(a must read)
+  > 
+  > 1. http://people.uleth.ca/~daniel.odonnell/Blog/custom-keyboard-in-linuxx11
   
 To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. [This wiki](http://www.noah.org/wiki/CapsLock_Remap_Howto) can serve as a start. (Usually I use virtual machines, so the keys are switched in Windows and works for VMware.)
 
