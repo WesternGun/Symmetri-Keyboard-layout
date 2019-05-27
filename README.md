@@ -111,6 +111,11 @@ Important that the executable is not interchangable between different Windows ma
 
 ---
 #### 5.2 Linux
+
+> Ubuntu users please check this answer: https://askubuntu.com/questions/24916/how-do-i-remap-certain-keys-or-devices
+>
+
+For Centos/Red Hat:
  - For virtual console (terminal) keyboard **(not finished yet.)**: 
  put `symmetri.map` into `/usr/lib/kbd/keymaps/legacy/i386/` or `/usr/lib/kbd/keymaps/xkb/`. (All files `/lib/kbd/keymaps/` will be read) and load it with:
  
