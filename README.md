@@ -116,12 +116,14 @@ Important that the executable is not interchangable between different Windows ma
 >
 
 For Centos/Red Hat:
+
  - For virtual console (terminal) keyboard **(not finished yet.)**: 
  put `symmetri.map` into `/usr/lib/kbd/keymaps/legacy/i386/` or `/usr/lib/kbd/keymaps/xkb/`. (All files `/lib/kbd/keymaps/` will be read) and load it with:
  
  ```
  sudo loadkeys symmetri
  ```
+ Our main reference is `keymaps(5)`. There we can find very useful information about how to interprete each column of `*.map` files. Be sure to read that.
  
  **Caution**: `loadkeys` changes the layout permanently, even after logout, and **is system-wide**; it means that even if you want to log in with another user after reboot, you will be using the changed layout. It will cause confusion if several users share the same machine, such as the case of a server. Rememeber to change it back when you log out!
  
