@@ -1,5 +1,4 @@
-# bash
-
+#!/bin/sh
 git add --all
 
 read -p "Commit description: " desc  
