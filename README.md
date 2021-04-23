@@ -233,7 +233,7 @@ For Centos/Red Hat:
   > 
   > 1. http://people.uleth.ca/~daniel.odonnell/Blog/custom-keyboard-in-linuxx11
   
-To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. [This wiki](http://www.noah.org/wiki/CapsLock_Remap_Howto) can serve as a start. (Usually I use virtual machines, so the keys are switched in Windows and works for VMware.)
+To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. What I do is to edit `evdev` file under `/usr/share/X11/xkb/keycodes` and set keyboard layout again with `setxkbmap` to clear xkb cache and load this file(Ubuntu 18.04). The `evdev` file under `/linux` already contains these changes and is ready to use. 
 
 
 ---
