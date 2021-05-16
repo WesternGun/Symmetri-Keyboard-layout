@@ -129,18 +129,15 @@ For Centos/Red Hat:
  
  
  - For X11:
- You must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with
- 
- ```
- sudo setxkbmap -v symmetri
- ```
-
+ You must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with `sudo setxkbmap -v symmetri -option caps:shiftlock`. `-option caps:shiftlock` ensures that after pressing CapsLock, you can enter numbers with top line keys without pressing Shift. This is the same behaviour as in Windows when you use the files in `windows` folder.
 
  If you want to load the "non-programmer" variant, use:
  
  ```
- sudo setxkbmap -v symmetri -variant non-prog
+ sudo setxkbmap -v symmetri -variant non-prog -option caps:shiftlock
  ```
+ (`-option caps:shiftlock` here will ensure you can enter `{[(</\>)]}` with top line keys without pressing Shift)
+
 
 <s>(`localectl set-keymap` can be used to `list-x11-keymaps` and `list-x11-keymap-variants symmetri`, but it cannot be used to set layout).</s>
 
@@ -150,8 +147,10 @@ For Centos/Red Hat:
   - only after login and for all user: add this line to `/etc/profile`, or create `/etc/profile.d/symmetri.sh` and add:
   ```
   #!/bin/bash
-  setxkbmap symmetri <-variant non-prog> # "<..>": optional
+  setxkbmap symmetri <-variant non-prog>  -option caps:shiftlock
   ```
+  "<..>": optional.
+  
   - before first successful login: see my question [here](https://unix.stackexchange.com/questions/446756/how-can-i-set-the-keyboard-layout-for-the-login-screen-before-the-first-successf) and my answer. Basically you copy the `evdev.lst` and `evdev.xml` file in this repo to the correct location(remember to make a backup of the original file), and then use `setxkbmap symmetri` to change keymap. Then, add a script file in `/usr/profile.d/` to load the keymap before every reboot.
   
   To leave a permanent copy:
@@ -232,8 +231,11 @@ For Centos/Red Hat:
   > References:(a must read)
   > 
   > 1. http://people.uleth.ca/~daniel.odonnell/Blog/custom-keyboard-in-linuxx11
-  
-To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. What I do is to edit `evdev` file under `/usr/share/X11/xkb/keycodes` and set keyboard layout again with `setxkbmap` to clear xkb cache and load this file(Ubuntu 18.04). The `evdev` file under `/linux` already contains these changes and is ready to use. 
+
+Another thing is: in Ubuntu, you can edit /etc/default/keyboard file to achieve the same. And then, you update the kernel definition with `update-initramfs -u`. 
+
+
+To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. What I do is to edit `evdev` file under `/usr/share/X11/xkb/keycodes` and set keyboard layout again with `setxkbmap` to clear xkb cache and load this file(Ubuntu 18.04). The `evdev` file under `/linux` already contains these changes and is ready to use. This keycode change is not applied until every time you log in, so be prepared when you need to decrypt disk or input username/password to log in. 
 
 
 ---
