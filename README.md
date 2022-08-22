@@ -100,6 +100,17 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
 ---
 #### 5.1 Windows
  1. Install Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339). It is compatible until Windows 10 with 2017 Autumn Creator Update. )
+ 1.1(optional) Use "kbd swapped.h" to replace the "kbd.h" file in the MSKLC install directory, to swap RShift/LShift/Enter/Capslock while building keyboard layout with MSKLC. "kbd original.h" is for restoring(non-swapped). Details: https://msklc-guide.github.io/. Quote:
+ > 03: Remapping System Keys
+ > While MSKLC GUI lets you remap most keys on your keyboard, it does not allow you to remap keys like Capslock, Backspace, Ctrl, and others. However, there is a way to do just that, with a bit more work:
+ > Step 0: Go to this directory: C:\Program Files (x86)\Microsoft Keyboard Layout Creator 1.4\inc
+ > You might have to look elsewhere if you don't have MSKLC installed on your C-drive.
+ > Step 1: Find the kbd.h file and copy it to your desktop. Consider creating a backup of it somewhere.
+ > Step 2: Open the kbd.h that now sits on your desktop in a text editor. Scroll down to line 1030.
+ > Step 3: Rewrite the VK-information to your liking (details below).
+ > Step 4: Save this edited kbd.h-file, copy, and paste your saved file back into C:\Program Files (x86)\Microsoft Keyboard Layout Creator 1.4\inc, replacing the existing kbd.h-file that lives there.
+ > Step 5: Re-open MSKLC and build your layout as you normally would. If you now use the newly-installed layout, it should operate with the VKs you defined.
+
  2. Download the `.klc` file in `windows` to import into MSKLC, and compile/package; then install the newly generated executable.
  3. Then, in Windows Registry, under `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts`, search `Chinese`, `Spanish` and `English`, to change `Layout Text` to `Symmetri`, and `Layout file` to `symmetri.dll`. (This file is installed to `C:\Windows\system32\`, or `C:\Windows\SysWOW64\`, depending on whether your machine is x86 or x64 architecture) Backup the folder/keys as you need.
  4. [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. Use another file to restore this change.
@@ -129,18 +140,15 @@ For Centos/Red Hat:
  
  
  - For X11:
- You must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with
- 
- ```
- sudo setxkbmap -v symmetri
- ```
-
+ You must use `symmetri`: put it in `/usr/share/X11/xkb/symbols`. And load it with `sudo setxkbmap -v symmetri -option caps:shiftlock`. `-option caps:shiftlock` ensures that after pressing CapsLock, you can enter numbers with top line keys without pressing Shift. This is the same behaviour as in Windows when you use the files in `windows` folder.
 
  If you want to load the "non-programmer" variant, use:
  
  ```
- sudo setxkbmap -v symmetri -variant non-prog
+ sudo setxkbmap -v symmetri -variant non-prog -option caps:shiftlock
  ```
+ (`-option caps:shiftlock` here will ensure you can enter `{[(</\>)]}` with top line keys without pressing Shift)
+
 
 <s>(`localectl set-keymap` can be used to `list-x11-keymaps` and `list-x11-keymap-variants symmetri`, but it cannot be used to set layout).</s>
 
@@ -150,8 +158,10 @@ For Centos/Red Hat:
   - only after login and for all user: add this line to `/etc/profile`, or create `/etc/profile.d/symmetri.sh` and add:
   ```
   #!/bin/bash
-  setxkbmap symmetri <-variant non-prog> # "<..>": optional
+  setxkbmap symmetri <-variant non-prog>  -option caps:shiftlock
   ```
+  "<..>": optional.
+  
   - before first successful login: see my question [here](https://unix.stackexchange.com/questions/446756/how-can-i-set-the-keyboard-layout-for-the-login-screen-before-the-first-successf) and my answer. Basically you copy the `evdev.lst` and `evdev.xml` file in this repo to the correct location(remember to make a backup of the original file), and then use `setxkbmap symmetri` to change keymap. Then, add a script file in `/usr/profile.d/` to load the keymap before every reboot.
   
   To leave a permanent copy:
@@ -232,8 +242,11 @@ For Centos/Red Hat:
   > References:(a must read)
   > 
   > 1. http://people.uleth.ca/~daniel.odonnell/Blog/custom-keyboard-in-linuxx11
-  
-To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. What I do is to edit `evdev` file under `/usr/share/X11/xkb/keycodes` and set keyboard layout again with `setxkbmap` to clear xkb cache and load this file(Ubuntu 18.04). The `evdev` file under `/linux` already contains these changes and is ready to use. 
+
+Another thing is: in Ubuntu, you can edit /etc/default/keyboard file to achieve the same. And then, you update the kernel definition with `update-initramfs -u`. 
+
+
+To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <kbd>RShift</kbd> key, you must change keycode in keymap files. What I do is to edit `evdev` file under `/usr/share/X11/xkb/keycodes` and set keyboard layout again with `setxkbmap` to clear xkb cache and load this file(Ubuntu 18.04). The `evdev` file under `/linux` already contains these changes and is ready to use. This keycode change is not applied until every time you log in, so be prepared when you need to decrypt disk or input username/password to log in. 
 
 
 ---

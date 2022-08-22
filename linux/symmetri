@@ -10,6 +10,7 @@ xkb_symbols "basic" {
 
     name[Group1]= "Symmetri(CN, EN and ES)";
     // row 1 (E)
+    key.type[group1]="FOUR_LEVEL_ALPHABETIC";
     key <TLDE> {    [     question,     exclam,         masculine,      ordfeminine ]   };
     key <AE01> {    [     braceleft,    1                                           ]   };
     key <AE02> {    [     bracketleft,  2,              periodcentered              ]   };
@@ -62,9 +63,12 @@ xkb_symbols "basic" {
     //home row right most key, the "abandoned child"
     key <BKSL> {    [     bar,          dollar,         ccedilla,       Ccedilla    ]   };
 
+    // below keys should not be affected by Caps Lock
+    key.type[group1]="THREE_LEVEL";
     //enable level 3 right alt switch. taken from "es" definition
     //a similar list of "options" can be seen in `/usr/share/X11/rules/base.lst`
     include "level3(ralt_switch)"
+
 };
 
 //A non-programmer variant.
