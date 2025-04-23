@@ -258,7 +258,7 @@ The rule works for most of the cases(single press, Shift+key, CapsLock+key), but
 
 Dead key combinations for circumflex, grave accent and acute accent letters are not implemented, for 2 reasons:
 
- - macOS ISO keyboard already has Option + E/U/I + letters, as shown in this screenshot of Keyboard Viewer. With Symmetri rule turned on, they are still available.
+ - macOS ISO keyboard already has Option + E/U/I + letters, as shown in [this screenshot of Keyboard Viewer](https://github.com/WesternGun/Symmetri-Keyboard-layout/blob/master/mac/keyboard-viewer-dead-key.png?raw=true). With Symmetri rule turned on, they are still available.
  - A usual Mac user may not want to learn a new way to enter those if already familiar with the old way.
 
  so I skipped that part. If someone would create an issue, I may implement it later.
