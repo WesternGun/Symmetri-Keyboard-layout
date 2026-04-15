@@ -1,0 +1,55 @@
+# Luna custom
+patch:
+  switches:
+    - name: full_shape
+      reset: 1
+      states: ["半角", "全角"]
+    - name: simplification
+      reset: 1
+      states: ["漢字", "汉字"]
+    - name: ascii_punct
+      reset: 0
+      states: ["句讀", "符號"]
+ 
+  "menu/page_size": 10
+ 
+ 
+  # first launch type English
+  "switches/@0/reset": 0 #表示將 switcher 列表中的第一個元素（即 ascii_mode 開關）的初始值重設爲狀態1（即「英文」）。
+ 
+  "key_binder/bindings":
+    # Change language with Ctrl+|
+    - {accept: "Control+bar", toggle: ascii_mode, when: always}
+    # pageup/pagedown to choose characters with ,/.
+    - {when: has_menu, accept: period, send: Page_Down}
+    - {when: has_menu, accept: comma, send: Page_Up}
+    # For SymmeTri
+    - {accept: Shift+braceleft, send: 1, when: has_menu}      # 大括号選1
+    - {accept: bracketleft, send: 2, when: has_menu}    # 中括号選2（OK）
+    - {accept: Shift+parenleft, send: 3, when: has_menu}      # 括号選3
+    - {accept: Shift+less, send: 4, when: has_menu}           # 小括号選4
+    - {accept: slash, send: 5, when: has_menu}          # 斜杠选5 （OK）
+    - {accept: backslash, send: 6, when: has_menu}      # 反斜杠选6
+    - {accept: Shift+greater, send: 7, when: has_menu}        # 右小括号选7
+    - {accept: parenright, send: 8, when: has_menu}     # 右括号选8（OK）
+    - {accept: bracketright, send: 9, when: has_menu}   # 右中括号选9（OK）
+    - {accept: Shift+braceright, send: 0, when: has_menu}     # 右大括号选0
+ 
+ 
+ 
+ 
+  # menu:
+  #  alternative_select_keys: '{[(</\>)]}' #如編碼字符佔用數字鍵則須另設選字鍵
+ 
+  ascii_composer/switch_key:
+    # commit_code: commit the letters
+    # commit_text: commit the characters
+    # clear: does not commit
+    # noop: disable
+ 
+    # Enable Shift switching language
+     # Shift_L: commit_code
+     # Shift_R: commit_code
+    # Disable Shift switching language
+     Shift_L: noop
+     Shift_R: noop

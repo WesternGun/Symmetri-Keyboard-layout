@@ -1,0 +1,27 @@
+patch:
+  schema_list:
+    - {schema: luna_pinyin}
+  # engine只能放在這個文件 不能放在luna拼音文件
+  engine:
+    processors:
+      - key_binder # 在其他processor之前判斷 是否是換頁用的符號
+      - selector   # 先选字
+      - punctuator # 然后處理標點
+  #   segmentors:
+  #     - abc_segmentor
+  #     - punct_segmentor   # 劃界，與前後方的其他編碼區分開
+  #     - fallback_segmentor
+  #   translators:
+  #     - echo_translator
+  #     - punct_translator  # 轉換
+  #     - table_translator
+  punctuator:
+    import_preset: default #導入預設
+    full_shape:
+      "{": "{"
+      "(": "("
+      "<": "<"
+    half_shape:
+      "{": "{"
+      "(": "("
+      "<": "<"
