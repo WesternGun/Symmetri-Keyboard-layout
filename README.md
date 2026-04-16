@@ -125,7 +125,7 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
 
  2. Download the `.klc` file in `windows` to import into MSKLC, and compile/package; then install the newly generated executable.
  3. Then, in Windows Registry, under `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts`, search `Chinese`, `Spanish` and `English`, to change `Layout Text` to `Symmetri`, and `Layout file` to `symmetri.dll`. (This file is installed to `C:\Windows\system32\`, or `C:\Windows\SysWOW64\`, depending on whether your machine is x86 or x64 architecture) Backup the folder/keys as you need.
- 4. [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. Use another file to restore this change.
+ 4. If 1.1 does not work, do this [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. Use [another file](/windows/registry_trick/restore%20function%20keys.reg) to restore this change.
  5. Restart to load registry modifications.
 
 Important that the executable is not interchangable between different Windows machines; in each machine it must be obtained by compiling the `.klc` file independantly. I guess it is due to difference between the compilation environment of each machine.
