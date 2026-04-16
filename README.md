@@ -125,7 +125,8 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
 
  2. Download the `.klc` file in `windows` to import into MSKLC, and compile/package; then install the newly generated executable.
  3. Then, in Windows Registry, under `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layouts`, search `Chinese`, `Spanish` and `English`, to change `Layout Text` to `Symmetri`, and `Layout file` to `symmetri.dll`. (This file is installed to `C:\Windows\system32\`, or `C:\Windows\SysWOW64\`, depending on whether your machine is x86 or x64 architecture) Backup the folder/keys as you need.
- 4. If 1.1 does not work, do this [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. Use [another file](/windows/registry_trick/restore%20function%20keys.reg) to restore this change.
+ 4. If 1.1 does not work, do this [registry trick](windows/registry_trick/switch%20function%20keys.reg) to swap Function keys. Use [another file](/windows/registry_trick/restore%20function%20keys.reg) to restore this change. **Note: this registry trick does not work anymore in Windows 11; you have to use `E0` instead of `00` for Enter to work, but that would hijack the Numpad Enter keycode.**. See [this answer](https://superuser.com/questions/1827375/windows-11-scancode-map-registry-trick-does-not-work-anymore). But I can live with that. 
+
  5. Restart to load registry modifications.
 
 Important that the executable is not interchangable between different Windows machines; in each machine it must be obtained by compiling the `.klc` file independantly. I guess it is due to difference between the compilation environment of each machine.
