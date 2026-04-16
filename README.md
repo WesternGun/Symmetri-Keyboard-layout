@@ -252,7 +252,7 @@ To switch the <kbd>CapsLock</kbd> and <kbd>LShift</kbd>, <kbd>Enter</kbd> and <k
 ---
 #### 5.3 macOS: 
 
-[Karabiner Elements](https://karabiner-elements.pqrs.org/), tested on v15.3.0 with macOS 15(Sequoia). Put the `karabiner.json` into your `~/.config/karabiner/`, and swap CapsLock-Shift-Enter in "Simple modification"(in "Complex Modification" it does not work well, and v15.3 does not allow me to alter CapsLock light status). Other keys are in "Complex Modifications" as a single rule. 
+[Karabiner Elements](https://karabiner-elements.pqrs.org/), tested on v15.3.0 with macOS 15(Sequoia). Put the `karabiner.json` into your `~/.config/karabiner/`, and swap CapsLock-Shift-Enter in "Simple modification", see [screenshot in the mac dir](/mac/Karabiner-Element/karabiner-simple-modification-modifier-keys.png). (In "Complex Modification" it does not work well, and v15.3 does not allow me to alter CapsLock light status). Other keys are in "Complex Modifications" as a single rule. 
 
 The rule works for most of the cases(single press, Shift+key, CapsLock+key), but not with CapsLock+Shift+key. See this ticket: https://github.com/pqrs-org/Karabiner-Elements/issues/4180. I will skip it as this is trivial in my opinion.
 
