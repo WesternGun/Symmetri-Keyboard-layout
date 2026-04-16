@@ -106,13 +106,21 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
 
  Quote:
  > 03: Remapping System Keys
+ > 
  > While MSKLC GUI lets you remap most keys on your keyboard, it does not allow you to remap keys like Capslock, Backspace, Ctrl, and others. However, there is a way to do just that, with a bit more work:
+ > 
  > Step 0: Go to this directory: C:\Program Files (x86)\Microsoft Keyboard Layout Creator 1.4\inc
+ > 
  > You might have to look elsewhere if you don't have MSKLC installed on your C-drive.
+ > 
  > Step 1: Find the kbd.h file and copy it to your desktop. Consider creating a backup of it somewhere.
+ > 
  > Step 2: Open the kbd.h that now sits on your desktop in a text editor. Scroll down to line 1030.
+ > 
  > Step 3: Rewrite the VK-information to your liking (details below).
+ > 
  > Step 4: Save this edited kbd.h-file, copy, and paste your saved file back into C:\Program Files (x86)\Microsoft Keyboard Layout Creator 1.4\inc, replacing the existing kbd.h-file that lives there.
+ > 
  > Step 5: Re-open MSKLC and build your layout as you normally would. If you now use the newly-installed layout, it should operate with the VKs you defined.
 
  2. Download the `.klc` file in `windows` to import into MSKLC, and compile/package; then install the newly generated executable.
