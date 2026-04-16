@@ -102,7 +102,7 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
  
  1. Install Microsoft Keyboard Layout Controller 1.4 (aka [MSKLC 1.4](https://www.microsoft.com/en-us/download/details.aspx?id=22339). At least it is compatible until Windows 10 with 2017 Autumn Creator Update)
 
- 1.1(optional) Use "kbd swapped.h" to replace the "kbd.h" file in the MSKLC install directory, to swap RShift/LShift/Enter/Capslock while building keyboard layout with MSKLC. "kbd original.h" is for restoring(non-swapped). Details: https://msklc-guide.github.io/.
+   1.1(optional) Use "kbd swapped.h" to replace the "kbd.h" file in the MSKLC install directory, to swap RShift/LShift/Enter/Capslock while building keyboard layout with MSKLC. "kbd original.h" is for restoring(non-swapped). Details: https://msklc-guide.github.io/.
 
  Quote:
  > 03: Remapping System Keys
