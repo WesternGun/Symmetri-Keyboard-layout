@@ -118,7 +118,9 @@ With different software/registry tweak, it can be used in Windows/Linux/MacOX.
 
 Important that the executable is not interchangable between different Windows machines; in each machine it must be obtained by compiling the `.klc` file independantly. I guess it is due to difference between the compilation environment of each machine.
 
+**Notes about Rime in Windows:**
 
+As shown in [#1890](https://github.com/rime/home/issues/1890), I tried to use Rime(Weasel for Windows), but actually, Microsoft Pinyin is working with the replacement of DLL from MSKLC, so Weasel is not needed for Windows, and I didn't create separate file for Windows solution. If someone wants to use Rime in Windows, remember that you can change Mac [luna_pinyin.custom.yaml](/mac/rime-squirrel/luna_pinyin.custom.yaml), removing the `Shift+` part and you are fine. 
 
 ---
 #### 5.2 Linux
@@ -263,7 +265,9 @@ Dead key combinations for circumflex, grave accent and acute accent letters are 
 
  so I skipped that part. If someone would create an issue, I may implement it later.
 
-For Chinese input, I use [Rime(Squirrel for Mac)](https://github.com/rime/squirrel) and corresponding files under [Mac dir](/mac/rime-squirrel). This config file solved the problem of selecting candidates with upper row keys(`{[(</\>)]}`), with prerequisite of using Karabiner config above. This is described in [#191](https://github.com/rime/home/issues/191) and [#1890](https://github.com/rime/home/issues/1890). For #1890, I tried to use Rime(Weasel for Windows), but actually, Microsoft Pinyin is working with the replacement of DLL from MSKLC, so Weasel is not needed. If someone wants to use Rime in Windows, remember that you can change Mac `luna_pinyin.custom.yaml`, removing the `Shift+` part and you are fine. 
+For Chinese input, I use [Rime(Squirrel for Mac)](https://github.com/rime/squirrel) and corresponding files under [Mac dir](/mac/rime-squirrel). This config file solved the problem of selecting candidates with upper row keys(`{[(</\>)]}`), with prerequisite of using Karabiner config above. This is described in [#191](https://github.com/rime/home/issues/191) and [#1890](https://github.com/rime/home/issues/1890). 
+
+
 
 
 WesternGun, 22/4/2025
