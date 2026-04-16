@@ -263,7 +263,7 @@ Dead key combinations for circumflex, grave accent and acute accent letters are 
 
  so I skipped that part. If someone would create an issue, I may implement it later.
 
-For Chinese input, I use [Rime(Squirrel for Mac)](https://github.com/rime/squirrel) and corresponding files under `./mac/rime-squirrel`. This config file solved the problem of selecting candidates with upper row keys(`{[(</\>)]}`), with prerequisite of using Karabiner config above. This is described in [#191](https://github.com/rime/home/issues/191) and [#1890](https://github.com/rime/home/issues/1890). For #1890, I tried to use Rime(Weasel for Windows), but actually, Microsoft Pinyin is working with the replacement of DLL from MSKLC, so Weasel is not needed. If someone wants to use Rime in Windows, remember that you can change Mac `luna_pinyin.custom.yaml`, removing the `Shift+` part and you are fine. 
+For Chinese input, I use [Rime(Squirrel for Mac)](https://github.com/rime/squirrel) and corresponding files under [Mac dir](/mac/rime-squirrel). This config file solved the problem of selecting candidates with upper row keys(`{[(</\>)]}`), with prerequisite of using Karabiner config above. This is described in [#191](https://github.com/rime/home/issues/191) and [#1890](https://github.com/rime/home/issues/1890). For #1890, I tried to use Rime(Weasel for Windows), but actually, Microsoft Pinyin is working with the replacement of DLL from MSKLC, so Weasel is not needed. If someone wants to use Rime in Windows, remember that you can change Mac `luna_pinyin.custom.yaml`, removing the `Shift+` part and you are fine. 
 
 
 WesternGun, 22/4/2025
